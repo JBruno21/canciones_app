@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/cancion.dart';
 import '../controllers/cancion_controlador.dart';
-import 'agregar_editar_cancion_vista.dart';
 
 class DetalleCancionVista extends StatelessWidget {
   final Cancion cancion;
@@ -12,26 +11,20 @@ class DetalleCancionVista extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detalle de la canción'),
+        title: const Text('Detalle de Canción'),
         backgroundColor: Colors.blue,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.edit),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      AgregarEditarCancionVista(cancion: cancion),
-                ),
-              );
-            },
-          ),
           IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () {
               CancionControlador.eliminarCancion(cancion.id);
-              Navigator.pop(context);             
+              Navigator.pop(context);
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Canción eliminada'),
+                  backgroundColor: Colors.red,
+                ),
+              );
             },
           ),
         ],
@@ -44,37 +37,52 @@ class DetalleCancionVista extends StatelessWidget {
             // Título
             Text(
               cancion.titulo,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 8),
-
-            // Cantante de nuestra cancion
+            
+            // Cantante
             Text(
               cancion.cantante,
-              style: const TextStyle(fontSize: 18, color: Colors.grey),
+              style: const TextStyle(
+                fontSize: 18,
+                color: Colors.grey,
+              ),
             ),
             const SizedBox(height: 4),
-
-            // Álbum de la cancion
+            
+            // Álbum
             Text(
               'Álbum: ${cancion.album}',
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+              ),
             ),
             const SizedBox(height: 24),
             const Divider(),
             const SizedBox(height: 16),
-
-            // Letra de la cancion
+            
+            // Letra
             const Text(
               'Letra',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(height: 12),
             Expanded(
               child: SingleChildScrollView(
                 child: Text(
                   cancion.letra,
-                  style: const TextStyle(fontSize: 16, height: 1.6),
+                  style: const TextStyle(
+                    fontSize: 16,
+                    height: 1.6,
+                  ),
                 ),
               ),
             ),
