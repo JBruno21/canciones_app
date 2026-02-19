@@ -7,10 +7,10 @@ import '../models/cancion.dart';
 class AgregarEditarCancionVista extends StatefulWidget {
   final Cancion? cancion;
 
-  const AgregarEditarCancionVista({Key? key, this.cancion}) : super(key: key);
-
+  const AgregarEditarCancionVista({super.key, this.cancion});
   @override
-  State<AgregarEditarCancionVista> createState() => _AgregarEditarCancionVistaState();
+  State<AgregarEditarCancionVista> createState() =>
+      _AgregarEditarCancionVistaState();
 }
 
 class _AgregarEditarCancionVistaState extends State<AgregarEditarCancionVista> {
@@ -82,7 +82,9 @@ class _AgregarEditarCancionVistaState extends State<AgregarEditarCancionVista> {
     }
 
     final cancion = Cancion(
-      id: _esEdicion ? widget.cancion!.id : CancionControlador.obtenerProximoId(),
+      id: _esEdicion
+          ? widget.cancion!.id
+          : CancionControlador.obtenerProximoId(),
       titulo: _tituloController.text.trim(),
       cantante: _cantanteController.text.trim(),
       album: _albumController.text.trim(),
@@ -92,8 +94,9 @@ class _AgregarEditarCancionVistaState extends State<AgregarEditarCancionVista> {
     );
 
     if (_esEdicion) {
-      final index = CancionControlador.canciones
-          .indexWhere((c) => c.id == widget.cancion!.id);
+      final index = CancionControlador.canciones.indexWhere(
+        (c) => c.id == widget.cancion!.id,
+      );
       CancionControlador.editarCancion(index, cancion);
     } else {
       CancionControlador.agregarCancion(cancion);
@@ -211,7 +214,11 @@ class _AgregarEditarCancionVistaState extends State<AgregarEditarCancionVista> {
                       ? const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.add_photo_alternate, size: 60, color: Colors.grey),
+                            Icon(
+                              Icons.add_photo_alternate,
+                              size: 60,
+                              color: Colors.grey,
+                            ),
                             SizedBox(height: 8),
                             Text('Seleccionar imagen del álbum'),
                           ],
@@ -243,7 +250,11 @@ class _AgregarEditarCancionVistaState extends State<AgregarEditarCancionVista> {
                       ? const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.add_photo_alternate, size: 60, color: Colors.grey),
+                            Icon(
+                              Icons.add_photo_alternate,
+                              size: 60,
+                              color: Colors.grey,
+                            ),
                             SizedBox(height: 8),
                             Text('Seleccionar imagen del cantante'),
                           ],

@@ -7,8 +7,7 @@ import 'dart:io';
 class DetalleCancionVista extends StatelessWidget {
   final Cancion cancion;
 
-  const DetalleCancionVista({Key? key, required this.cancion}) : super(key: key);
-
+  const DetalleCancionVista({super.key, required this.cancion});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -5,7 +5,7 @@ import 'detalle_cancion_vista.dart';
 import 'dart:io';
 
 class BusquedaVista extends StatefulWidget {
-  const BusquedaVista({Key? key}) : super(key: key);
+  const BusquedaVista({super.key});
 
   @override
   State<BusquedaVista> createState() => _BusquedaVistaState();

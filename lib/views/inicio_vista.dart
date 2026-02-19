@@ -7,7 +7,7 @@ import 'agregar_editar_cancion_vista.dart';
 import 'dart:io';
 
 class InicioVista extends StatefulWidget {
-  const InicioVista({Key? key}) : super(key: key);
+  const InicioVista({super.key});
 
   @override
   State<InicioVista> createState() => _InicioVistaState();

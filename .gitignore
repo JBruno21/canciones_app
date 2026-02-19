@@ -29,3 +29,4 @@ ios/Pods/
 ios/.symlinks/
 ios/Flutter/Flutter.framework
 ios/Flutter/Flutter.podspec
+git remote add origin https://github.com/JBruno21/canciones_app.git
