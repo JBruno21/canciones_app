@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "titulo": "Happier Than Ever",
+    "cantante": "Billie Eilish",
+    "album": "Happier Than Ever",
+    "imagenAlbum": "assets/images/happier_than_ever.jpg",
+    "imagenCantante": "assets/images/billie_eilish.jpg",
+    "letra": "When I'm away from you\nI'm happier than ever\nWish I could explain it better\nI wish it wasn't true\n\nGive me a day or two\nTo think of something clever\nTo write myself a letter\nTo tell me what to do\n\nDo you read my interviews?\nOr do you skip my avenue?\nWhen you said you were passin' through\nWas I even on your way?\n\nI knew when I asked you to\nBe cool about what I was tellin' you\nYou'd do the opposite of what you said you'd do\nAnd I'd end up more afraid\n\nDon't say it isn't fair\nYou clearly weren't aware that you made me miserable"
+  },
+  {
+    "id": 2,
+    "titulo": "The Other Woman",
+    "cantante": "Lana Del Rey",
+    "album": "Ultraviolence",
+    "imagenAlbum": "assets/images/ultraviolence.jpg",
+    "imagenCantante": "assets/images/lana_del_rey.jpg",
+    "letra": "The other woman has time to manicure her nails\nThe other woman is perfect where her rival fails\nAnd she's never seen with pin curls in her hair anywhere\n\nThe other woman enchants her clothes with French perfume\nThe other woman keeps fresh cut flowers in each room\nThere are never toys that's scattered everywhere\n\nAnd when her old man comes to call\nHe finds her waiting like a lonesome queen\n'Cause to be by her side\nIt's such a change from old routine\n\nBut the other woman will always cry herself to sleep\nThe other woman will never have his love to keep\nAnd as the years go by, the other woman will spend her life alone"
+  },
+  {
+    "id": 3,
+    "titulo": "Goddess",
+    "cantante": "Laufey",
+    "album": "Bewitched",
+    "imagenAlbum": "assets/images/bewitched.jpg",
+    "imagenCantante": "assets/images/laufey.jpg",
+    "letra": "You're like a work of art\nHanging on a wall inside the Louvre\nI wish I was a mat\nSo you could step on me when you move\n\nYou're like a Sunday morning\nFull of grace and full of Jesus\nI wish I was the ground\nSo you could walk all over me, yes\n\nYou're a goddess\nI don't think you know it\nYou're a goddess\nAnd I'm so below it\n\nI just wanna touch ya\nWanna feel the texture\nOf your pretty skin\nAnd be let in to the world you're living in\n\nYou're a goddess\nI worship you, darling\nYou're a goddess\nAnd it's kind of alarming"
+  }
+]
