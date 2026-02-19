@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../controllers/cancion_controlador.dart';
 import '../models/cancion.dart';
 import 'detalle_cancion_vista.dart';
-import 'dart:io';
 
 class BusquedaVista extends StatefulWidget {
   const BusquedaVista({super.key});
@@ -28,29 +27,22 @@ class _BusquedaVistaState extends State<BusquedaVista> {
   }
 
   @override
-  void dispose() {
-    _busquedaController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Buscar Canciones'),
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.white,
+        backgroundColor: Colors.blue,
       ),
       body: Column(
         children: [
-          // Campo de búsqueda
+          // Buscar
           Padding(
             padding: const EdgeInsets.all(16),
             child: TextField(
               controller: _busquedaController,
               onChanged: _realizarBusqueda,
               decoration: InputDecoration(
-                hintText: 'Buscar por título, cantante o álbum...',
+                hintText: 'Ingresa su búsqueda',
                 prefixIcon: const Icon(Icons.search),
                 suffixIcon: _busquedaController.text.isNotEmpty
                     ? IconButton(
@@ -62,13 +54,12 @@ class _BusquedaVistaState extends State<BusquedaVista> {
                       )
                     : null,
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(8),
                 ),
-                filled: true,
-                fillColor: Colors.grey[100],
               ),
             ),
           ),
+
           // Resultados
           Expanded(
             child: _resultados.isEmpty
@@ -79,37 +70,21 @@ class _BusquedaVistaState extends State<BusquedaVista> {
                     ),
                   )
                 : ListView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     itemCount: _resultados.length,
                     itemBuilder: (context, index) {
                       final cancion = _resultados[index];
-                      return Card(
-                        margin: const EdgeInsets.only(bottom: 12),
-                        child: ListTile(
-                          leading: ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
-                            child: Image(
-                              image: _obtenerImagen(cancion.imagenAlbum),
-                              width: 60,
-                              height: 60,
-                              fit: BoxFit.cover,
+                      return ListTile(
+                        title: Text(cancion.titulo),
+                        subtitle: Text('${cancion.cantante} - ${cancion.album}'),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetalleCancionVista(cancion: cancion),
                             ),
-                          ),
-                          title: Text(
-                            cancion.titulo,
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          subtitle: Text('${cancion.cantante} • ${cancion.album}'),
-                          trailing: const Icon(Icons.chevron_right),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => DetalleCancionVista(cancion: cancion),
-                              ),
-                            );
-                          },
-                        ),
+                          );
+                        },
                       );
                     },
                   ),
@@ -117,13 +92,5 @@ class _BusquedaVistaState extends State<BusquedaVista> {
         ],
       ),
     );
-  }
-
-  ImageProvider _obtenerImagen(String ruta) {
-    if (ruta.startsWith('assets/')) {
-      return AssetImage(ruta);
-    } else {
-      return FileImage(File(ruta));
-    }
   }
 }
